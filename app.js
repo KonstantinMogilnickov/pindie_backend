@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const cors = require('./middlewares/cors')
-const PORT = 5000;
+const PORT = 3001;
 const app = express();
 const apiRouter = require('./routes/apiRouter');
 const pagesRouter = require('./routes/pages')
@@ -20,7 +20,6 @@ app.use(
     express.static(path.join(__dirname, 'public')),
     pagesRouter,
     apiRouter,
-
 ); 
 
 app.listen(PORT, () => {
