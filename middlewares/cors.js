@@ -10,14 +10,14 @@ const allowedCors = [
 // Функция, которая принимает объекты req (информация о запросе),
 // res (объект ответа) и функцию next (для запуска следующего миддлвара)
 function cors(req, res, next) {
-    const { origin } = req.headers; // Смотрим, кто стучится к серверу
-    if (allowedCors.includes(origin)) { // Если это один из разрешенных сайтов,
-        res.header('Access-Control-Allow-Origin', origin);
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-        res.header('Access-Control-Allow-Headers', 'Content-type,Authorization,Accept,X-Custom-Header');// разрешаем доступ
+    const { origin } = req.headers;
+  
+    if (allowedCors.includes(origin)) {
+      res.header("Access-Control-Allow-Origin", origin);
     }
-
-    next(); // Идём дальше, не задерживаем очередь
-}
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE");
+    res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
+    next();
+  }
 
 module.exports = cors;
