@@ -3,7 +3,8 @@ const allowedCors = [
     'https://practicum.yandex.ru',
     'https://students-projects.ru',
     'http://localhost:3005',
-    'http://localhost:3001'
+    'http://localhost:3001',
+    "https://pindie59.nomoredomainswork.ru"
 ];
 
 // Функция, которая принимает объекты req (информация о запросе),
